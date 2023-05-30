@@ -17,7 +17,7 @@
   "content_scripts": [
     {
       "matches": ["https://app.openai.com/*", "https://chat.openai.com/*", "https://ai.com/*"],
-      "js": ["content.js"]
+      "js": ["content.js", "pdf.min.js", "pdf.worker.min.js", "mammoth.browser.min.js"]
     }
   ],
   "default_locale": "en"
