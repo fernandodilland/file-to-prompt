@@ -9,12 +9,12 @@
         "message": "Choose a file"
     },
     "cancelButtonText": {
-        "message": "Cancel prompt"
+        "message": "Cancel parts"
     },
     "submitFilePartText": {
       "message": "Submitting part {part} of file \"{filename}\": \n\n{text}"
     },
     "chunkSizeLabel": {
-      "message": "Chunk size"
+      "message": "Number of characters per part:"
     }
   }

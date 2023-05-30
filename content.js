@@ -1,3 +1,5 @@
+// Main code of the "File to Prompt" extension created by Fernando Dilland
+
 // Set the value of GlobalWorkerOptions.workerSrc property to the URL of the local pdf.worker.min.js file
 if (typeof window !== "undefined" && "pdfjsLib" in window) {
   window["pdfjsLib"].GlobalWorkerOptions.workerSrc =
@@ -12,19 +14,31 @@ document.head.appendChild(script);
 // Create the button
 const button = document.createElement("button");
 button.innerText = chrome.i18n.getMessage("uploadButtonText");
-button.style.padding = "3px";
+button.style.padding = "8px";
+button.style.paddingLeft = "15px";
+button.style.paddingRight = "15px";
 button.style.border = "none";
-button.style.borderRadius = "3px";
+button.style.borderRadius = "5px";
 button.style.margin = "3px";
 
 // Create the cancel button
 const cancelButton = document.createElement("button");
 cancelButton.innerText = chrome.i18n.getMessage("cancelButtonText");
-cancelButton.innerText = "Cancelar";
-cancelButton.style.padding = "3px";
+cancelButton.style.padding = "8px";
+cancelButton.style.paddingLeft = "15px";
+cancelButton.style.paddingRight = "15px";
 cancelButton.style.border = "none";
-cancelButton.style.borderRadius = "3px";
+cancelButton.style.borderRadius = "5px";
 cancelButton.style.margin = "3px";
+
+// Create the button wrapper div
+const buttonWrapper = document.createElement("div");
+buttonWrapper.style.display = "flex";
+buttonWrapper.style.alignSelf = "center";
+
+// Add the buttons to the button wrapper div
+buttonWrapper.appendChild(button);
+buttonWrapper.appendChild(cancelButton);
 
 let cancelProgress = false; // Variable to track if the progress should be cancelled
 
@@ -53,7 +67,7 @@ progressContainer.appendChild(progressBar);
 const chunkSizeInput = document.createElement("input");
 chunkSizeInput.type = "number";
 chunkSizeInput.min = "1";
-chunkSizeInput.value = "15000";
+chunkSizeInput.value = "14000";
 chunkSizeInput.style.margin = "3px";
 chunkSizeInput.style.width = "80px"; // Set the width of the input element
 chunkSizeInput.style.height = "28px"; // Set the width of the input element
@@ -64,6 +78,7 @@ chunkSizeInput.style.fontSize = "14px"; // Set the font size inside the input el
 const chunkSizeLabel = document.createElement("label");
 chunkSizeLabel.innerText = chrome.i18n.getMessage("chunkSizeLabel");
 chunkSizeLabel.appendChild(chunkSizeInput);
+chunkSizeLabel.style.alignSelf = "center";
 
 // Add a click event listener to the button
 button.addEventListener("click", async () => {
@@ -187,7 +202,7 @@ const targetSelector =
   ".flex.flex-col.w-full.py-2.flex-grow.md\\:py-3.md\\:pl-4";
 const intervalId = setInterval(() => {
   const targetElement = document.querySelector(targetSelector);
-  if (targetElement && !targetElement.contains(button)) {
+  if (targetElement && !targetElement.contains(buttonWrapper)) {
     // Create a wrapper div to hold the target element and the button
     const wrapperDiv = document.createElement("div");
     wrapperDiv.style.display = "flex";
@@ -197,11 +212,10 @@ const intervalId = setInterval(() => {
     targetElement.parentNode.insertBefore(wrapperDiv, targetElement);
     wrapperDiv.appendChild(targetElement);
 
-    // Insert the buttons after the target element
-    wrapperDiv.appendChild(button);
-    wrapperDiv.appendChild(cancelButton);
+    // Insert the button wrapper div after the target element
+    wrapperDiv.appendChild(buttonWrapper);
 
-    // Insert the progress bar container after the button
+    // Insert the progress bar container after the button wrapper div
     wrapperDiv.appendChild(progressContainer);
 
     // Insert the chunk size label and input after the progress bar container
