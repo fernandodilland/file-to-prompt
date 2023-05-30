@@ -1,9 +1,9 @@
 {
     "extensionName": {
-      "message": "ChatGPT File Upload Extension"
+      "message": "File to Prompt for ChatGPT and Bard"
     },
     "extensionDescription": {
-      "message": "Upload files to ChatGPT as text."
+      "message": "Upload files to ChatGPT and convert them into Text Prompts."
     },
     "uploadButtonText": {
         "message": "Choose a file"

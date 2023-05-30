@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "ChatGPT와 Bard에 대한 파일 프롬프트"
+    },
+    "extensionDescription": {
+        "message": "ChatGPT에 파일을 업로드하고 이를 텍스트 프롬프트로 변환합니다."
+    },
+    "uploadButtonText": {
+        "message": "파일 선택"
+    },
+    "cancelButtonText": {
+        "message": "부분 취소"
+    },
+    "submitFilePartText": {
+        "message": "파일 \"{filename}\" 의 부분 {part} 제출: \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "부분 당 문자 수:"
+    }
+}

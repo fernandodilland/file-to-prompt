@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "Fichier à Invite pour ChatGPT et Bard"
+    },
+    "extensionDescription": {
+        "message": "Chargez des fichiers vers ChatGPT et convertissez-les en invites de texte."
+    },
+    "uploadButtonText": {
+        "message": "Choisir un fichier"
+    },
+    "cancelButtonText": {
+        "message": "Annuler les parties"
+    },
+    "submitFilePartText": {
+        "message": "Envoi de la partie {part} du fichier \"{filename}\": \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "Caractères par partie:"
+    }
+}

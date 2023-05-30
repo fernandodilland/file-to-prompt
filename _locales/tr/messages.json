@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "Dosya ChatGPT ve Bard için Prompt'a"
+    },
+    "extensionDescription": {
+        "message": "Dosyaları ChatGPT'ye yükleyin ve onları Metin İstemi'ne dönüştürün."
+    },
+    "uploadButtonText": {
+        "message": "Bir dosya seçin"
+    },
+    "cancelButtonText": {
+        "message": "Parçaları iptal et"
+    },
+    "submitFilePartText": {
+        "message": "\"{filename}\" dosyasının {part} parçasını gönder: \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "Parça başına karakter:"
+    }
+}

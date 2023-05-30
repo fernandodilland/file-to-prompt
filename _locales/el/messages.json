@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "Αρχείο σε Prompt για ChatGPT και Bard"
+    },
+    "extensionDescription": {
+        "message": "Ανεβάστε αρχεία στο ChatGPT και μετατρέψτε τα σε Text Prompts."
+    },
+    "uploadButtonText": {
+        "message": "Επιλέξτε ένα αρχείο"
+    },
+    "cancelButtonText": {
+        "message": "Ακύρωση μερών"
+    },
+    "submitFilePartText": {
+        "message": "Υποβολή μέρους {part} του αρχείου \"{filename}\": \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "Χαρακτήρες ανά μέρος:"
+    }
+}

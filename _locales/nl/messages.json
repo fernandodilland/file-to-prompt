@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "Bestand naar Prompt voor ChatGPT en Bard"
+    },
+    "extensionDescription": {
+        "message": "Upload bestanden naar ChatGPT en zet ze om in Tekst Prompts."
+    },
+    "uploadButtonText": {
+        "message": "Kies een bestand"
+    },
+    "cancelButtonText": {
+        "message": "Onderdelen annuleren"
+    },
+    "submitFilePartText": {
+        "message": "Onderdeel {part} van bestand \"{filename}\" wordt ingediend: \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "Tekens per deel:"
+    }
+}

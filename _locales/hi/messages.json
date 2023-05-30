@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "ChatGPT और Bard के लिए फ़ाइल प्रॉम्प्ट"
+    },
+    "extensionDescription": {
+        "message": "ChatGPT में फ़ाइलें अपलोड करें और उन्हें टेक्स्ट प्रॉम्प्ट में परिवर्तित करें."
+    },
+    "uploadButtonText": {
+        "message": "एक फ़ाइल चुनें"
+    },
+    "cancelButtonText": {
+        "message": "भाग रद्द करें"
+    },
+    "submitFilePartText": {
+        "message": "फ़ाइल \"{filename}\" का भाग {part} सबमिट करना: \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "प्रति भाग वर्ण:"
+    }
+}

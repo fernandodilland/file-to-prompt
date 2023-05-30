@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "ملف إلى موجه لـ ChatGPT و Bard"
+    },
+    "extensionDescription": {
+        "message": "تحميل الملفات إلى ChatGPT وتحويلها إلى موجهات نص."
+    },
+    "uploadButtonText": {
+        "message": "اختر ملف"
+    },
+    "cancelButtonText": {
+        "message": "إلغاء الأجزاء"
+    },
+    "submitFilePartText": {
+        "message": "إرسال الجزء {part} من الملف \"{filename}\": \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "الأحرف لكل جزء:"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "Файл в Приглашение для ChatGPT и Bard"
+    },
+    "extensionDescription": {
+        "message": "Загрузите файлы на ChatGPT и преобразуйте их в текстовые приглашения."
+    },
+    "uploadButtonText": {
+        "message": "Выберите файл"
+    },
+    "cancelButtonText": {
+        "message": "Отменить части"
+    },
+    "submitFilePartText": {
+        "message": "Отправка части {part} файла \"{filename}\": \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "Символов на часть:"
+    }
+}
