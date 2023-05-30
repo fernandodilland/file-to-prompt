@@ -3,12 +3,12 @@
 // Set the value of GlobalWorkerOptions.workerSrc property to the URL of the local pdf.worker.min.js file
 if (typeof window !== "undefined" && "pdfjsLib" in window) {
   window["pdfjsLib"].GlobalWorkerOptions.workerSrc =
-    chrome.runtime.getURL("pdf.worker.min.js");
+    chrome.runtime.getURL("static/pdf.worker.min.js");
 }
 
 // Load Mammoth.js library
 const script = document.createElement("script");
-script.src = chrome.runtime.getURL("mammoth.browser.min.js");
+script.src = chrome.runtime.getURL("static/mammoth.browser.min.js");
 document.head.appendChild(script);
 
 // Create the button
