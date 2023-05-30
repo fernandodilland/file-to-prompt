@@ -1,0 +1,15 @@
+{
+    "extensionName": {
+      "message": "ChatGPT File Upload Extension"
+    },
+    "extensionDescription": {
+      "message": "Upload files to ChatGPT as text."
+    },
+    "buttonText": {
+      "message": "Upload File"
+    },
+    "submitFilePartText": {
+      "message": "Submitting part {part} of file {filename}: \n\n{text}"
+    }
+  }
+  
