@@ -5,11 +5,16 @@
     "extensionDescription": {
       "message": "Upload files to ChatGPT as text."
     },
-    "buttonText": {
-      "message": "Upload File"
+    "uploadButtonText": {
+        "message": "Choose a file"
+    },
+    "cancelButtonText": {
+        "message": "Cancel prompt"
     },
     "submitFilePartText": {
-      "message": "Submitting part {part} of file {filename}: \n\n{text}"
+      "message": "Submitting part {part} of file \"{filename}\": \n\n{text}"
+    },
+    "chunkSizeLabel": {
+      "message": "Chunk size"
     }
   }
-  
