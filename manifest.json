@@ -6,18 +6,18 @@
   "permissions": ["activeTab", "scripting"],
   "action": {
     "default_icon": {
-      "16": "images/icon16.png",
-      "48": "images/icon48.png",
-      "128": "images/icon128.png"
+      "16": "static/icon16.png",
+      "48": "static/icon48.png",
+      "128": "static/icon128.png"
     }
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "static/background.js"
   },
   "content_scripts": [
     {
       "matches": ["https://app.openai.com/*", "https://chat.openai.com/*", "https://ai.com/*", "https://bard.google.com/*"],
-      "js": ["content.js", "pdf.min.js", "pdf.worker.min.js", "mammoth.browser.min.js"]
+      "js": ["static/content.js", "static/pdf.min.js", "static/pdf.worker.min.js", "static/mammoth.browser.min.js"]
     }
   ],
   "default_locale": "en"
