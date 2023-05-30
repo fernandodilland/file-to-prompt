@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "File ke Prompt untuk ChatGPT dan Bard"
+    },
+    "extensionDescription": {
+        "message": "Unggah file ke ChatGPT dan ubah menjadi Prompts teks."
+    },
+    "uploadButtonText": {
+        "message": "Pilih file"
+    },
+    "cancelButtonText": {
+        "message": "Batalkan bagian"
+    },
+    "submitFilePartText": {
+        "message": "Mengirim bagian {part} dari file \"{filename}\": \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "Karakter per bagian:"
+    }
+}

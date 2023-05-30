@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "Fil till Prompt för ChatGPT och Bard"
+    },
+    "extensionDescription": {
+        "message": "Ladda upp filer till ChatGPT och konvertera dem till Textprompts."
+    },
+    "uploadButtonText": {
+        "message": "Välj en fil"
+    },
+    "cancelButtonText": {
+        "message": "Avbryt delar"
+    },
+    "submitFilePartText": {
+        "message": "Skickar del {part} av fil \"{filename}\": \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "Tecken per del:"
+    }
+}

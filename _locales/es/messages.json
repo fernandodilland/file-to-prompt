@@ -1,9 +1,9 @@
 {
     "extensionName": {
-      "message": "Extensión de Subida de Archivos a ChatGPT"
+      "message": "Archivo a Prompt para ChatGPT y Bard"
     },
     "extensionDescription": {
-      "message": "Sube archivos a ChatGPT como texto."
+      "message": "Carga archivos a ChatGPT y conviértelos en Prompts de texto."
     },
     "uploadButtonText": {
       "message": "Elige un archivo"

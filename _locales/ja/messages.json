@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "ChatGPTとBardへのファイルをプロンプト"
+    },
+    "extensionDescription": {
+        "message": "ChatGPTにファイルをアップロードし、それらをテキストプロンプトに変換します."
+    },
+    "uploadButtonText": {
+        "message": "ファイルを選択"
+    },
+    "cancelButtonText": {
+        "message": "パートをキャンセル"
+    },
+    "submitFilePartText": {
+        "message": "ファイル \"{filename}\" のパート {part} を送信中: \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "パートあたりの文字数:"
+    }
+}

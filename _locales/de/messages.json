@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "Datei zu Eingabeaufforderung für ChatGPT und Bard"
+    },
+    "extensionDescription": {
+        "message": "Laden Sie Dateien hoch zu ChatGPT und konvertieren Sie sie in Text-Eingabeaufforderungen."
+    },
+    "uploadButtonText": {
+        "message": "Wählen Sie eine Datei"
+    },
+    "cancelButtonText": {
+        "message": "Teile stornieren"
+    },
+    "submitFilePartText": {
+        "message": "Übermittlung von Teil {part} der Datei \"{filename}\": \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "Zeichen pro Teil:"
+    }
+}

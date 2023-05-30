@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "Plik do Prompt dla ChatGPT i Bard"
+    },
+    "extensionDescription": {
+        "message": "Prześlij pliki do ChatGPT i przekształć je w Tekstowe Wskazówki."
+    },
+    "uploadButtonText": {
+        "message": "Wybierz plik"
+    },
+    "cancelButtonText": {
+        "message": "Anuluj części"
+    },
+    "submitFilePartText": {
+        "message": "Przesyłanie części {part} pliku \"{filename}\": \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "Znaki na część:"
+    }
+}

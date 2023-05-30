@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "将文件转为ChatGPT和Bard的提示"
+    },
+    "extensionDescription": {
+        "message": "上传文件至ChatGPT并将其转化为文本提示."
+    },
+    "uploadButtonText": {
+        "message": "选择一个文件"
+    },
+    "cancelButtonText": {
+        "message": "取消部分"
+    },
+    "submitFilePartText": {
+        "message": "提交文件 \"{filename}\" 的部分 {part} : \n\n{text}"
+    },
+    "chunkSizeLabel": {
+        "message": "每部分的字符数:"
+    }
+}
