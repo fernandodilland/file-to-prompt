@@ -15,6 +15,6 @@
       "message": "Enviando parte {part} del archivo \"{filename}\": \n\n{text}"
     },
     "chunkSizeLabel": {
-      "message": "Cantidad de carácteres por parte:"
+      "message": "Carácteres por parte:"
     }
   }

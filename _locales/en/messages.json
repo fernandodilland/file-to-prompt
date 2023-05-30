@@ -15,6 +15,6 @@
       "message": "Submitting part {part} of file \"{filename}\": \n\n{text}"
     },
     "chunkSizeLabel": {
-      "message": "Number of characters per part:"
+      "message": "Characters per part:"
     }
   }
