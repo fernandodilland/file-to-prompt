@@ -126,11 +126,7 @@ button.addEventListener("click", async () => {
       progressBar.style.width = `${((i + 1) / numChunks) * 100}%`;
 
       // Wait for ChatGPT to be ready
-      let chatgptReady = false;
-      while (!chatgptReady) {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        chatgptReady = true;
-      }
+      await wait(2000); // Wait for 2 seconds before sending the next chunk
     }
 
     // Finish updating the progress bar
@@ -140,6 +136,11 @@ button.addEventListener("click", async () => {
   // Click the input element to trigger the file selection dialog
   input.click();
 });
+
+// Define a function to wait for a specified number of milliseconds
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 // Define a function that extracts text from a PDF file using pdf.js library and window['pdfjsLib'] object reference
 async function extractTextFromPdfFile(file) {
@@ -182,6 +183,7 @@ async function extractTextFromWordFile(file) {
 const submitFilePartText = chrome.i18n.getMessage("submitFilePartText");
 async function submitConversation(text, part, filename) {
   const textarea = document.querySelector("textarea[id='prompt-textarea']");
+  await wait(500);
   textarea.value = submitFilePartText
     .replace("{part}", part)
     .replace("{filename}", filename)
@@ -206,7 +208,7 @@ async function submitConversation(text, part, filename) {
 
 // Periodically check if the button has been added to the page and add it if it hasn't
 const targetSelector =
-  ".relative.flex.h-full.flex-1.items-stretch.md\\:flex-col";
+  "textarea#prompt-textarea";
 const intervalId = setInterval(() => {
   const targetElement = document.querySelector(targetSelector);
   if (targetElement && !targetElement.contains(buttonWrapper)) {
@@ -221,9 +223,6 @@ const intervalId = setInterval(() => {
 
     // Insert the button wrapper div after the target element
     wrapperDiv.appendChild(buttonWrapper);
-
-    // Insert the progress bar container after the button wrapper div
-    wrapperDiv.appendChild(progressContainer);
 
     // Insert the chunk size label and input after the progress bar container
     wrapperDiv.appendChild(chunkSizeLabel);
@@ -250,8 +249,24 @@ function handleDarkModeChange(event) {
     cancelButton.style.backgroundColor = "#ffc0c0";
     cancelButton.style.color = "black";
   }
+
+  setInterval(clickContinueButton, 1300); // Check for the button every second
 }
 
 handleDarkModeChange(darkModeQuery); // Apply initial styles based on current mode
 
 darkModeQuery.addListener(handleDarkModeChange); // Update styles when mode changes
+
+
+function clickContinueButton() {
+  const buttons = document.querySelectorAll(".btn");
+
+  for (let i = 0; i < buttons.length; i++) {
+    if (buttons[i].innerText.includes("Continue generating")) {
+      buttons[i].click();
+      break; // Exit the loop after clicking the button
+    }
+  }
+}
+
+setInterval(clickContinueButton, 1000); // Check for the button every second
