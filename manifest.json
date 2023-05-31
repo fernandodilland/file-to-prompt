@@ -19,8 +19,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://app.openai.com/*", "https://chat.openai.com/*", "https://ai.com/*", "https://bard.google.com/*"],
-      "js": ["static/content.js", "static/pdf.min.js", "static/pdf.worker.min.js", "static/mammoth.browser.min.js"]
+      "matches": [
+        "https://app.openai.com/*",
+        "https://chat.openai.com/*",
+        "https://ai.com/*",
+        "https://bard.google.com/*"
+      ],
+      "js": ["static/content.js"]
     }
   ],
   "default_locale": "en"

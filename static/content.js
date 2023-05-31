@@ -129,9 +129,7 @@ button.addEventListener("click", async () => {
       let chatgptReady = false;
       while (!chatgptReady) {
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        chatgptReady = !document.querySelector(
-          ".text-2xl > span:not(.invisible)"
-        );
+        chatgptReady = true;
       }
     }
 
@@ -183,23 +181,32 @@ async function extractTextFromWordFile(file) {
 // Submit conversation function
 const submitFilePartText = chrome.i18n.getMessage("submitFilePartText");
 async function submitConversation(text, part, filename) {
-  const textarea = document.querySelector("textarea[tabindex='0'], textarea[aria-label='Input for prompt text']");
-  const enterKeyEvent = new KeyboardEvent("keydown", {
-    bubbles: true,
-    cancelable: true,
-    keyCode: 13,
-  });
+  const textarea = document.querySelector("textarea[id='prompt-textarea']");
   textarea.value = submitFilePartText
     .replace("{part}", part)
     .replace("{filename}", filename)
     .replace("{text}", text);
 
+  // Trigger the input event on the textarea
+  const inputEvent = new InputEvent("input", {
+    bubbles: true,
+    cancelable: true,
+  });
+  textarea.dispatchEvent(inputEvent);
+
+  // Trigger the enter keydown event on the textarea
+  const enterKeyEvent = new KeyboardEvent("keydown", {
+    bubbles: true,
+    cancelable: true,
+    keyCode: 13,
+  });
   textarea.dispatchEvent(enterKeyEvent);
 }
 
+
 // Periodically check if the button has been added to the page and add it if it hasn't
 const targetSelector =
-  ".flex.flex-col.w-full.py-2.flex-grow.md\\:py-3.md\\:pl-4, mat-form-field";
+  ".relative.flex.h-full.flex-1.items-stretch.md\\:flex-col";
 const intervalId = setInterval(() => {
   const targetElement = document.querySelector(targetSelector);
   if (targetElement && !targetElement.contains(buttonWrapper)) {
