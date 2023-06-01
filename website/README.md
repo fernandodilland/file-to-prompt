@@ -1,4 +1,4 @@
-# Página web filetoprompt.com
+# Website filetoprompt.com
 
 This repository contains the source code and files for the **filetoprompt.com** website. The website is generated using the **Staatic – Static Site Generator** plugin for WordPress. It is hosted on Cloudflare Pages and automatically updates whenever a commit is made to the `main` branch of this repository.
 
