@@ -40,6 +40,17 @@ Once installed, File to Prompt works seamlessly by displaying the necessary butt
 
 File to Prompt simplifies the process of using local files as text prompts, making it easier to interact with generative text models on supported platforms.
 
+## Libraries Used
+
+File to Prompt utilizes the following libraries:
+
+1. [mammoth.browser.min.js](https://github.com/mwilliamson/mammoth.js/) - A library for converting .docx files to HTML.  
+   - License: [BSD-2-Clause license](https://github.com/mwilliamson/mammoth.js/blob/master/LICENSE)
+2. [pdf.min.js](https://github.com/mozilla/pdf.js) - A library for rendering PDF files in JavaScript.
+   - License: [Apache-2.0 license](https://github.com/mozilla/pdf.js/blob/master/LICENSE)
+3. [pdf.worker.min.js](https://github.com/mozilla/pdf.js) - A component of the pdf.js library responsible for the PDF rendering process.
+   - License: [Apache-2.0 license](https://github.com/mozilla/pdf.js/blob/master/LICENSE)
+
 ## License
 
 File to Prompt is released under the [MIT License](LICENSE). Copyright (c) [Fernando Dilland Mireles Cisneros].
