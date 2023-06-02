@@ -1,8 +1,6 @@
-// Main code of the "File to Prompt" extension created by Fernando Dilland
-
 // Set the value of GlobalWorkerOptions.workerSrc property to the URL of the local pdf.worker.min.js file
 if (typeof window !== "undefined" && "pdfjsLib" in window) {
-  window["pdfjsLib"].GlobalWorkerOptions.workerSrc =
+  window.pdfjsLib.GlobalWorkerOptions.workerSrc =
     chrome.runtime.getURL("static/pdf.worker.min.js");
 }
 
@@ -36,9 +34,26 @@ const buttonWrapper = document.createElement("div");
 buttonWrapper.style.display = "flex";
 buttonWrapper.style.alignSelf = "center";
 
+// Create the chunk size input
+const chunkSizeInput = document.createElement("input");
+chunkSizeInput.type = "number";
+chunkSizeInput.min = "1";
+chunkSizeInput.value = "14000";
+chunkSizeInput.style.margin = "3px";
+chunkSizeInput.style.width = "80px"; // Set the width of the input element
+chunkSizeInput.style.height = "28px"; // Set the width of the input element
+chunkSizeInput.style.color = "black"; // Set the font color inside the input element
+chunkSizeInput.style.fontSize = "14px"; // Set the font size inside the input element
+
+// Create the chunk size label
+const chunkSizeLabel = document.createElement("label");
+chunkSizeLabel.innerText = chrome.i18n.getMessage("chunkSizeLabel");
+chunkSizeLabel.style.alignSelf = "center";
+
 // Add the buttons to the button wrapper div
 buttonWrapper.appendChild(button);
 buttonWrapper.appendChild(cancelButton);
+chunkSizeLabel.appendChild(chunkSizeInput);
 
 let cancelProgress = false; // Variable to track if the progress should be cancelled
 
@@ -61,24 +76,9 @@ progressContainer.style.borderRadius = "5px";
 const progressBar = document.createElement("div");
 progressBar.style.width = "0%";
 progressBar.style.height = "100%";
+progressBar.style.backgroundColor = "#b48700"; // Set the color of the progress bar
 progressContainer.appendChild(progressBar);
 
-// Create the chunk size input
-const chunkSizeInput = document.createElement("input");
-chunkSizeInput.type = "number";
-chunkSizeInput.min = "1";
-chunkSizeInput.value = "14000";
-chunkSizeInput.style.margin = "3px";
-chunkSizeInput.style.width = "80px"; // Set the width of the input element
-chunkSizeInput.style.height = "28px"; // Set the width of the input element
-chunkSizeInput.style.color = "black"; // Set the font color inside the input element
-chunkSizeInput.style.fontSize = "14px"; // Set the font size inside the input element
-
-// Create the chunk size label
-const chunkSizeLabel = document.createElement("label");
-chunkSizeLabel.innerText = chrome.i18n.getMessage("chunkSizeLabel");
-chunkSizeLabel.appendChild(chunkSizeInput);
-chunkSizeLabel.style.alignSelf = "center";
 
 // Add a click event listener to the button
 button.addEventListener("click", async () => {
@@ -126,7 +126,11 @@ button.addEventListener("click", async () => {
       progressBar.style.width = `${((i + 1) / numChunks) * 100}%`;
 
       // Wait for ChatGPT to be ready
-      await wait(2000); // Wait for 2 seconds before sending the next chunk
+      let chatgptReady = false;
+      while (!chatgptReady) {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        chatgptReady = !document.querySelector(".text-2xl > span:not(.invisible)");
+      }
     }
 
     // Finish updating the progress bar
@@ -137,15 +141,10 @@ button.addEventListener("click", async () => {
   input.click();
 });
 
-// Define a function to wait for a specified number of milliseconds
-function wait(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-// Define a function that extracts text from a PDF file using pdf.js library and window['pdfjsLib'] object reference
+// Define a function that extracts text from a PDF file using pdf.js library and window.pdfjsLib object reference
 async function extractTextFromPdfFile(file) {
   const pdfDataUrl = URL.createObjectURL(file);
-  const pdfDoc = await window["pdfjsLib"].getDocument(pdfDataUrl).promise;
+  const pdfDoc = await window.pdfjsLib.getDocument(pdfDataUrl).promise;
   let textContent = "";
   for (let i = 1; i <= pdfDoc.numPages; i++) {
     const page = await pdfDoc.getPage(i);
@@ -182,7 +181,7 @@ async function extractTextFromWordFile(file) {
 // Submit conversation function
 const submitFilePartText = chrome.i18n.getMessage("submitFilePartText");
 async function submitConversation(text, part, filename) {
-  const textarea = document.querySelector("textarea[id='prompt-textarea']");
+  const textarea = document.querySelector("textarea[id='prompt-textarea']") || document.querySelector(".mat-mdc-input-element");
   await wait(500);
   textarea.value = submitFilePartText
     .replace("{part}", part)
@@ -205,10 +204,14 @@ async function submitConversation(text, part, filename) {
   textarea.dispatchEvent(enterKeyEvent);
 }
 
+// Define a function to wait for a specified number of milliseconds
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 // Periodically check if the button has been added to the page and add it if it hasn't
 const targetSelector =
-  "textarea#prompt-textarea";
+  ".px-3.pb-3.pt-2.text-center.md\\:px-4.md\\:pb-6.md\\:pt-3,.gmat-caption.ng-tns-c586583937-1";
 const intervalId = setInterval(() => {
   const targetElement = document.querySelector(targetSelector);
   if (targetElement && !targetElement.contains(buttonWrapper)) {
@@ -223,6 +226,9 @@ const intervalId = setInterval(() => {
 
     // Insert the button wrapper div after the target element
     wrapperDiv.appendChild(buttonWrapper);
+
+    // Insert the progress bar container after the button wrapper div
+    wrapperDiv.appendChild(progressContainer);
 
     // Insert the chunk size label and input after the progress bar container
     wrapperDiv.appendChild(chunkSizeLabel);
@@ -256,7 +262,6 @@ function handleDarkModeChange(event) {
 handleDarkModeChange(darkModeQuery); // Apply initial styles based on current mode
 
 darkModeQuery.addListener(handleDarkModeChange); // Update styles when mode changes
-
 
 function clickContinueButton() {
   const buttons = document.querySelectorAll(".btn");
