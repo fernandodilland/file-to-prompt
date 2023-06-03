@@ -1,0 +1,42 @@
+ErrorDocument 404 /404_not_found/index.html
+Redirect 301 /donar https://filetoprompt.com/es/donar/
+
+<If "%{REQUEST_URI} =~ m#^/wp\-content/uploads/2023\-05\-31\-20\-24\-59\.mov#i">
+  ForceType "video/quicktime"
+</If>
+
+<If "%{REQUEST_URI} =~ m#^/wp\-sitemap\-index\.xsl#i">
+  ForceType "application/xml; charset=UTF-8"
+</If>
+
+<If "%{REQUEST_URI} =~ m#^/wp\-json/#i">
+  ForceType "application/json; charset=UTF-8"
+</If>
+
+<If "%{REQUEST_URI} =~ m#^/feed/#i">
+  ForceType "application/rss+xml; charset=UTF-8"
+</If>
+
+<If "%{REQUEST_URI} =~ m#^/comments/feed/#i">
+  ForceType "application/rss+xml; charset=UTF-8"
+</If>
+
+<If "%{REQUEST_URI} =~ m#^/wp\-sitemap\.xsl#i">
+  ForceType "application/xml; charset=UTF-8"
+</If>
+
+<If "%{REQUEST_URI} =~ m#^/author/admin/feed/#i">
+  ForceType "application/rss+xml; charset=UTF-8"
+</If>
+
+<If "%{REQUEST_URI} =~ m#^/es/comments/feed/#i">
+  ForceType "application/rss+xml; charset=UTF-8"
+</If>
+
+<If "%{REQUEST_URI} =~ m#^/es/feed/#i">
+  ForceType "application/rss+xml; charset=UTF-8"
+</If>
+
+<If "%{REQUEST_URI} =~ m#^/es/author/admin/feed/#i">
+  ForceType "application/rss+xml; charset=UTF-8"
+</If>
