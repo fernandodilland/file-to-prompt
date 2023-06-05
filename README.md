@@ -1,6 +1,6 @@
 # File to Prompt (Browser Extension)
 
-![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/hmhjddciebeidnliblcaonmdlknagjim?label=Chrome%20Users&style=social&logo=google) ![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=social)
+[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/hmhjddciebeidnliblcaonmdlknagjim?label=Chrome%20Users&style=social&logo=google)](https://chrome.google.com/webstore/detail/file-to-prompt-for-chatgp/hmhjddciebeidnliblcaonmdlknagjim) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=social)](LICENSE)
 
 Multi-Language Chrome/Edge Extension that enables selecting local files and sending them as text prompts to Artificial Intelligences (OpenAI ChatGPT, Bing Chat, Google Bard) in segments.
 
