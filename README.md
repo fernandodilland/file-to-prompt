@@ -53,7 +53,7 @@ File to Prompt utilizes the following libraries:
 
 ## License
 
-File to Prompt is released under the [MIT License](LICENSE). Copyright (c) [Fernando Dilland].
+File to Prompt is released under the [MIT License](LICENSE).
 
 For more information, visit the [official website](https://filetoprompt.com/).
 
